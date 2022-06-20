@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_28_size">28dp</dimen>
+    <dimen name="dp_56_size">56dp</dimen>
+    <dimen name="card_elevation_size">4dp</dimen>
+    <dimen name="text_size_26">26sp</dimen>
+    <dimen name="margin_default">30dp</dimen>
+    <dimen name="sp_16_text_size">16sp</dimen>
+    <dimen name="large_dimen_100">100dp</dimen>
+</resources>

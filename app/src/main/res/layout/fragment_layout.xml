@@ -11,23 +11,22 @@
         android:id="@+id/add_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/margin_default"
         android:background="@drawable/ellipse_1"
         app:layout_constraintBottom_toBottomOf="@+id/fl_increment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/large_dimen_100"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/margin_default"
         android:gravity="center"
         android:text="@string/create_new_notification"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="@dimen/sp_16_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/fl_increment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,20 +50,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="@dimen/text_size_26"
             android:textStyle="bold"
-            tools:text="0">
-
-        </TextView>
+            tools:text="0" />
     </FrameLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/removeFragment"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/dp_56_size"
+        android:layout_height="@dimen/dp_56_size"
         android:background="@drawable/shape"
-        app:cardCornerRadius="28dp"
-        app:cardElevation="4dp"
+        app:cardCornerRadius="@dimen/dp_28_size"
+        app:cardElevation="@dimen/card_elevation_size"
         app:layout_constraintBottom_toBottomOf="@+id/fl_increment"
         app:layout_constraintStart_toStartOf="@+id/fl_increment"
         app:layout_constraintTop_toTopOf="@+id/fl_increment">
@@ -75,20 +72,18 @@
             android:layout_gravity="center"
             android:text="@string/minus"
             android:textColor="@color/blue"
-            android:textSize="26sp"
-            android:textStyle="bold">
-
-        </TextView>
+            android:textSize="@dimen/text_size_26"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/add_fragment"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/dp_56_size"
+        android:layout_height="@dimen/dp_56_size"
         android:background="@drawable/shape"
-        app:cardCornerRadius="28dp"
-        app:cardElevation="4dp"
+        app:cardCornerRadius="@dimen/dp_28_size"
+        app:cardElevation="@dimen/card_elevation_size"
         app:layout_constraintBottom_toBottomOf="@+id/fl_increment"
         app:layout_constraintEnd_toEndOf="@+id/fl_increment"
         app:layout_constraintTop_toTopOf="@+id/fl_increment">
@@ -99,9 +94,8 @@
             android:layout_gravity="center"
             android:text="@string/plus"
             android:textColor="@color/blue"
-            android:textSize="26sp"
-            android:textStyle="bold">
-        </TextView>
+            android:textSize="@dimen/text_size_26"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 

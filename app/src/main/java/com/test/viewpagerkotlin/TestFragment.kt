@@ -5,60 +5,67 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.test.viewpagerkotlin.databinding.FragmentLayoutBinding
-
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.isVisible
+import com.test.viewpagerkotlin.databinding.FragmentLayoutBinding
 
+const val ZERO = 0
 
 class TestFragment(
     private val clickListener: IncrementFragmentClickListener,
-    private val activity: Activity
-) : Fragment() {
+    private val activity: Activity,
+) : BaseFragment<FragmentLayoutBinding>() {
 
-    private lateinit var viewBinding: FragmentLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? = inflater.inflate(R.layout.fragment_layout, container, false)
+    ): View {
+        _binding = FragmentLayoutBinding.inflate(inflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding = FragmentLayoutBinding.bind(view)
         initUi()
         initOnClickListeners()
     }
 
     private fun initUi() {
-        with(viewBinding) {
-            when {
-                getCurrentItem() == 0 -> {
-                    removeFragment.visibility = View.GONE
-                }
-                else -> {
-                    removeFragment.visibility = View.VISIBLE
-                }
+        when {
+            getCurrentItem() == ZERO -> {
+                showBtn(false)
             }
-            textIncrement.text = getCurrentItem().toString()
+            else -> {
+                showBtn(true)
+            }
         }
+        binding.textIncrement.text = getCurrentItem().toString()
+    }
+
+    private fun showBtn(isVisible: Boolean) {
+        binding.removeFragment.isVisible = isVisible
     }
 
     private fun initOnClickListeners() {
-        with(viewBinding) {
+        with(binding) {
             removeFragment.setOnClickListener {
-                clickListener.incrementClickListener(false)
+                incrementItem(false)
             }
             addFragment.setOnClickListener {
-                clickListener.incrementClickListener(true)
+                incrementItem(true)
             }
             addNotification.setOnClickListener {
                 createNotification(getCurrentItem())
             }
         }
 
+    }
+
+    private fun incrementItem(isIncrement: Boolean) {
+        clickListener.incrementClickListener(isIncrement)
     }
 
     private fun createNotification(index: Int) {
